@@ -1,11 +1,23 @@
 import express from "express";
+import {
+  deleteCartProduct,
+  getAllCartProduct,
+  getSingleCartProduct,
+  newCartProduct,
+  updateCart,
+} from "../controllers/cart.js";
+import {
+  verifyToken,
+  verifyTokenAndAdmin,
+  verifyTokenAndAuthorization,
+} from "../middleware/verifyToken";
 
 const router = express.Router();
 
-router.post("/", () => {});
-router.put("/:id", () => {});
-router.delete("/:id", () => {});
-router.get("/", () => {});
-router.get("/find/:id", () => {});
+router.post("/", verifyToken, newCartProduct);
+router.put("/:id", verifyTokenAndAuthorization, updateCart);
+router.delete("/:id", verifyTokenAndAuthorization, deleteCartProduct);
+router.get("/", verifyTokenAndAdmin, getAllCartProduct);
+router.get("/find/:id", verifyTokenAndAuthorization, getSingleCartProduct);
 
 export default router;
