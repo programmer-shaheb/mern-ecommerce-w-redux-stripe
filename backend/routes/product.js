@@ -6,7 +6,7 @@ import {
   newProduct,
   updateProduct,
 } from "../controllers/product.js";
-import { verifyTokenAndAdmin } from "../middleware/verifyToken";
+import { verifyTokenAndAdmin } from "../middleware/verifyToken.js";
 
 const router = express.Router();
 

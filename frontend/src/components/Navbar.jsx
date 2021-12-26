@@ -13,6 +13,7 @@ import {
   Right,
   MenuItem,
 } from "./componentStyle/navbar.style";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -26,10 +27,12 @@ const Navbar = () => {
           </SearchContainer>
         </Left>
         <Center>
-          <Logo
-            src="https://cdn.shopify.com/s/files/1/0575/0528/4291/files/logo.png?v=1622974648"
-            alt="Logo"
-          />
+          <Link to="/">
+            <Logo
+              src="https://cdn.shopify.com/s/files/1/0575/0528/4291/files/logo.png?v=1622974648"
+              alt="Logo"
+            />
+          </Link>
         </Center>
         <Right>
           <MenuItem>REGISTER</MenuItem>
