@@ -1,11 +1,13 @@
 import { Add, Remove } from "@material-ui/icons";
 import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import Announcement from "../components/Announcement";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import Newsletter from "../components/Newsletter";
 import { API } from "../httpMethods";
+import { addProduct } from "../redux/cartRedux";
 import {
   AddContainer,
   Amount,
@@ -28,6 +30,7 @@ import {
 } from "./pageStyle/product.style";
 
 const Product = () => {
+  const dispatch = useDispatch();
   const { id } = useParams();
   const [product, setProduct] = useState({});
   const [quantity, setQuantity] = useState(1);
@@ -61,7 +64,7 @@ const Product = () => {
       size,
       color,
     };
-
+    dispatch(addProduct(addedProduct));
     console.log(addedProduct);
   };
 
