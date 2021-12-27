@@ -8,12 +8,14 @@ import { API } from "../httpMethods";
 const Products = ({ category, sort, filters }) => {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
-
+  console.log(category);
   useEffect(() => {
     const getProducts = async () => {
       try {
         const result = await axios.get(
-          category ? `${API}/products?category=${category}` : `${API}/products`
+          category
+            ? `http://localhost:5000/api/products?category=${category}`
+            : `http://localhost:5000/api/products`
         );
         setProducts(result.data);
       } catch (error) {

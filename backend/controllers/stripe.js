@@ -3,6 +3,7 @@ import Stripe from "stripe";
 const stripe = new Stripe(process.env.PAYMENT_KEY);
 
 export const paymentMethod = (req, res) => {
+  console.log(req);
   stripe.charges.create(
     {
       amount: req.body.amount,
